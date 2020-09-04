@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "QS.Face.Verification.Client": {
+      "commandName": "Project",
+      "commandLineArgs": "https://apidev.spectre.quantasoft.vision:5443/ Images/mp.jpg Images/mp_mask.jpg"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option csharp_namespace = "QS.Face.Verification.Client";
+
+package qsonline;
+
+// The greeting service definition.
+service FaceVerification {
+  // Sends a greeting
+  rpc Verify (VerifyRequest) returns (VerifyReply);
+}
+
+// The request message containing the user's name.
+message VerifyRequest {
+  bytes imageData1 = 1;
+  bytes imageData2 = 2;
+}
+
+ message VerifyError {
+    string message = 1;
+    string trace = 2;
+  }
+
+message VerifyResult {
+    float score = 1;
+    float confidence = 2;  
+}
+
+// The response message containing the greetings.
+message VerifyReply {
+
+   enum ReplyStatus {
+    NONE = 0;
+    OK = 1;
+    INPUT_DATA_ERROR = 2;
+    INTERNAL_ERROR = 3;    
+  }
+
+  ReplyStatus status = 1 ;
+
+  VerifyResult result = 2;
+
+  VerifyError error = 3;
+
+}
